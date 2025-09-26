@@ -1,0 +1,23 @@
+[
+    {
+        "image_id": "img001",
+        "qrs": [
+            {
+                "bbox": [
+                    "x_min",
+                    "y_min",
+                    "x_max",
+                    "y_max"
+                ]
+            },
+            {
+                "bbox": [
+                    "x_min",
+                    "y_min",
+                    "x_max",
+                    "y_max"
+                ]
+            }
+        ]
+    }
+]
