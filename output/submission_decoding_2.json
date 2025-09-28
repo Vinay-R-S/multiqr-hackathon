@@ -1,25 +1,25 @@
 [
-    {
-        "image_id": "img001",
-        "qrs": [
-            {
-                "bbox": [
-                    "x_min",
-                    "y_min",
-                    "x_max",
-                    "y_max"
-                ],
-                "value": "B12345"
-            },
-            {
-                "bbox": [
-                    "x_min",
-                    "y_min",
-                    "x_max",
-                    "y_max"
-                ],
-                "value": "MFR56789"
-            }
-        ]
-    }
+  {
+    "image_id": "img001",
+    "qrs": [
+      {
+        "bbox": [
+          50,
+          30,
+          120,
+          100
+        ],
+        "value": "B12345"
+      },
+      {
+        "bbox": [
+          200,
+          80,
+          260,
+          140
+        ],
+        "value": "MFR56789"
+      }
+    ]
+  }
 ]

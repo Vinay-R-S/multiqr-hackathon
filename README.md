@@ -7,7 +7,7 @@ Most medicine packs have more than one QR code, such as codes for the **manufact
 
 
 ## Dataset  
-![Dataset](https://drive.google.com/file/d/1YCQggB6DdBEeIeBJy_odCW8ma_dq6Fg9/view)
+[Dataset](https://drive.google.com/file/d/1YCQggB6DdBEeIeBJy_odCW8ma_dq6Fg9/view)
 - You will be given a dataset of **200 medicine pack images** with annotated QR bounding boxes.  
 - These will help you **train and validate** your models for the main detection task.  
 - A **test set of 50 images** will be used for final scoring, which also contains decoded QR values for bonus evaluation.  
@@ -51,8 +51,8 @@ multiqr-hackathon/
   {
     "image_id": "img001",
     "qrs": [
-      { "bbox": [x_min, y_min, x_max, y_max] },
-      { "bbox": [x_min, y_min, x_max, y_max] }
+      { "bbox": [50, 30, 120, 100] },
+      { "bbox": [200, 80, 260, 140] }
     ]
   }
 ]
@@ -70,8 +70,8 @@ multiqr-hackathon/
   {
     "image_id": "img001",
     "qrs": [
-      { "bbox": [x_min, y_min, x_max, y_max], "value": "B12345" },
-      { "bbox": [x_min, y_min, x_max, y_max], "value": "MFR56789" }
+      { "bbox": [50, 30, 120, 100], "value": "B12345" },
+      { "bbox": [200, 80, 260, 140], "value": "MFR56789" }
     ]
   }
 ]
