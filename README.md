@@ -69,6 +69,18 @@ python -m venv .venv
 `Step 7:` Run the inference file `python .\infer.py` to get the inference
 `Step 8:` Run the evaluate file to get the model performace details `python .\evaluate`
 
+## Results
+```
+Evaluation Results:
+Mean IoU: 0.8500 (85% accuracy its union of QR area of predicted and real QR area)
+Precision: 1.0000
+Recall: 1.0000
+F1 Score: 1.0000
+True Positives: 29
+False Positives: 0
+False Negatives: 0
+```
+
 ## Project is divided into 2 stages
 
 ### Stage 1: Detection
