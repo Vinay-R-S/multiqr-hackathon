@@ -18,25 +18,56 @@ Most medicine packs have more than one QR code, such as codes for the **manufact
 multiqr-hackathon/
 │
 ├── ProblemStatement.md
-├── README.md                      # Setup & usage instructions
-├── requirements.txt               # Python dependencies
-├── train.py                       # Training script
-├── infer.py                       # Must implement inference (input=images → output=JSON)
-├── evaluate.py                    # (Optional) for self-check with provided GT
+├── README.md                                # Setup & usage instructions
+├── requirements.txt                         # Python dependencies
+├── train.py                                 # Training script
+├── infer.py                                 # Must implement inference (input=images → output=JSON)
+├── evaluate.py                              # (Optional) for self-check with provided GT
 │
-├── data/                          # (participants don't commit dataset, only placeholder)
-│   └── demo_images/               # You’ll provide a small demo set
+├── data/                                    # (participants don't commit dataset, only placeholder)
+│   └── demo_images/                         # You’ll provide a small demo set
 │
 ├── outputs/                       
-│   ├── submission_detection_1.json   # Required output file (Stage 1)
-│   └── submission_decoding_2.json    # Required output file (Stage 2, bonus)
+│   ├── submission_detection_1.json          # Required output file (Stage 1)
+│   └── submission_decoding_2.json           # Required output file (Stage 2, bonus)
 │
 └── src/                          
-    ├── models/                    # Model definitions
-    ├── datasets/                  # Dataset loading & preprocessing
-    ├── utils/                     # Utility functions
+    ├── models/                              # Model definitions
+    |   ├── yolov8n.pt
+    |   ├── yolov8s.pt
+    ├── annotated_augmented_dataset/         # Dataset loading & preprocessing
+    |   ├── train
+    |   |   ├── images
+    |   |   ├── labels
+    |   ├── valid
+    |   |   ├── images
+    |   |   ├── labels
+    |   └──data.yaml
+    ├── datasets/                            # Dataset loading & preprocessing
+    ├── script/                              # Dataset loading & preprocessing
+    |   └── rename_dataset.py
+    ├── utils/                               # Utility functions
     └── __init__.py
 ```
+
+`Note: YOLOv8 model needs validation set while traning and testing so the test set is used as valid set testing can be done on external images`
+
+## Run the project in this manner
+
+`Step 1:` Set the virtual environment [Run the below commands]
+```
+python -m venv .venv
+.\venv\Scripts\activate
+```
+`Step 2:` Download the dataset form the above link <br>
+`Step 3:` Annotate the images using [roboflow](https://app.roboflow.com/) to add the bouding box <br>
+`Step 4:` Use the Preprocessing and Augmentation option while versioning the dataset and download the annotated dataset inside `annotated_augmented_dataset` folder. <br>
+`Step 5:` Run the rename python script to get the clear and common naming format for images
+`python .\src\script\rename_dataset.py` and rename test folder as valid since yolov8 uses valid as testing internally<br>
+`Step 6:` Start the traning process by running this command `python .\train.py` <br>
+`Step 7:` Copy some images and their labels from valid folder and store in data folder to get the inference of the images
+`Step 7:` Run the inference file `python .\infer.py` to get the inference
+`Step 8:` Run the evaluate file to get the model performace details `python .\evaluate`
 
 ## Project is divided into 2 stages
 
