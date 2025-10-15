@@ -35,13 +35,13 @@ multiqr-hackathon/
     ├── models/                              # Model definitions
     |   ├── yolov8n.pt
     |   ├── yolov8s.pt
-    ├── annotated_augmented_dataset/         # Dataset loading & preprocessing
+    ├── annotated_augmented_dataset/         # Dataset is stored here loading & preprocessing
     |   ├── train
     |   |   ├── images
-    |   |   ├── labels
+    |   |   └── labels
     |   ├── valid
     |   |   ├── images
-    |   |   ├── labels
+    |   |   └── labels
     |   └──data.yaml
     ├── datasets/                            # Dataset loading & preprocessing
     ├── script/                              # Dataset loading & preprocessing
@@ -58,7 +58,9 @@ multiqr-hackathon/
 ```
 python -m venv .venv
 .\venv\Scripts\activate
+pip install -r requirements.txt
 ```
+
 `Step 2:` Download the dataset form the above link <br>
 `Step 3:` Annotate the images using [roboflow](https://app.roboflow.com/) to add the bouding box <br>
 `Step 4:` Use the Preprocessing and Augmentation option while versioning the dataset and download the annotated dataset inside `annotated_augmented_dataset` folder. <br>
@@ -66,8 +68,8 @@ python -m venv .venv
 `python .\src\script\rename_dataset.py` and rename test folder as valid since yolov8 uses valid as testing internally<br>
 `Step 6:` Start the traning process by running this command `python .\train.py` <br>
 `Step 7:` Copy some images and their labels from valid folder and store in data folder to get the inference of the images
-`Step 7:` Run the inference file `python .\infer.py` to get the inference
-`Step 8:` Run the evaluate file to get the model performace details `python .\evaluate`
+`Step 7:` Run the inference file `python .\infer.py` to get the inference <br>
+`Step 8:` Run the evaluate file to get the model performace details `python .\evaluate` <br>
 
 ## Results
 ```
@@ -80,6 +82,8 @@ True Positives: 29
 False Positives: 0
 False Negatives: 0
 ```
+
+## Sample submission in `output folder` - The bounding box co-ordinates after the inference
 
 ## Project is divided into 2 stages
 
