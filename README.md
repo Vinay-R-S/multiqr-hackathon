@@ -24,17 +24,18 @@ multiqr-hackathon/
 ├── infer.py                                 # Must implement inference (input=images → output=JSON)
 ├── evaluate.py                              # (Optional) for self-check with provided GT
 │
-├── data/                                    # (participants don't commit dataset, only placeholder)
-│   └── demo_images/                         # You’ll provide a small demo set
+├── data/   
+│   ├── images                               # (participants don't commit dataset, only placeholder)
+│   └── labels/                              # You’ll provide a small demo set
 │
 ├── outputs/                       
 │   ├── submission_detection_1.json          # Required output file (Stage 1)
 │   └── submission_decoding_2.json           # Required output file (Stage 2, bonus)
 │
 └── src/                          
-    ├── models/                              # Model definitions
+    ├── models/                              # Model weights (PyTorch models so .pt extension)
     |   ├── yolov8n.pt
-    |   ├── yolov8s.pt
+    |   └── yolov8s.pt
     ├── annotated_augmented_dataset/         # Dataset is stored here loading & preprocessing
     |   ├── train
     |   |   ├── images
@@ -42,12 +43,10 @@ multiqr-hackathon/
     |   ├── valid
     |   |   ├── images
     |   |   └── labels
-    |   └──data.yaml
-    ├── datasets/                            # Dataset loading & preprocessing
-    ├── script/                              # Dataset loading & preprocessing
-    |   └── rename_dataset.py
-    ├── utils/                               # Utility functions
-    └── __init__.py
+    |   └── data.yaml
+    ├── datasets/                            # Customm Dataset downloaded from the Google drive
+    └── script/                              # Python Scripts to run any processes
+        └── rename_dataset.py
 ```
 
 `Note: YOLOv8 model needs validation set while traning and testing so the test set is used as valid set testing can be done on external images`
@@ -64,12 +63,12 @@ pip install -r requirements.txt
 `Step 2:` Download the dataset form the above link <br>
 `Step 3:` Annotate the images using [roboflow](https://app.roboflow.com/) to add the bouding box <br>
 `Step 4:` Use the Preprocessing and Augmentation option while versioning the dataset and download the annotated dataset inside `annotated_augmented_dataset` folder. <br>
-`Step 5:` Run the rename python script to get the clear and common naming format for images
-`python .\src\script\rename_dataset.py` and rename test folder as valid since yolov8 uses valid as testing internally<br>
-`Step 6:` Start the traning process by running this command `python .\train.py` <br>
-`Step 7:` Copy some images and their labels from valid folder and store in data folder to get the inference of the images
-`Step 7:` Run the inference file `python .\infer.py` to get the inference <br>
-`Step 8:` Run the evaluate file to get the model performace details `python .\evaluate` <br>
+`Step 5:` Copy some images and their labels from valid folder and store in data folder to get the inference of the images & rename the test folder as valid since yolov8 uses valid as testing internally<br>
+`Step 6:` Run the `main.py` by running using this command `python .\main.py` it will run the below python scripts in the order <br>
+ ├── `Sub-Step 1:` Rename python script to get the clear and common naming format for images `python .\src\script\rename_dataset.py` <br>
+ ├── `Sub-Step 2:` Start the traning process by running this command `python .\train.py` <br>
+ ├── `Sub-Step 3:` Run the inference file `python .\infer.py` to get the inference <br>
+ └── `Sub-Step 4:` Run the evaluate file to get the model performace details `python .\evaluate` <br>
 
 ## Results
 ```
