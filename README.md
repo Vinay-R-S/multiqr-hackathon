@@ -63,8 +63,8 @@ pip install -r requirements.txt
 `Step 2:` Download the dataset form the above link <br>
 `Step 3:` Annotate the images using [roboflow](https://app.roboflow.com/) to add the bouding box <br>
 `Step 4:` Use the Preprocessing and Augmentation option while versioning the dataset and download the annotated dataset inside `annotated_augmented_dataset` folder. <br>
-`Step 5:` Copy some images and their labels from valid folder and store in data folder to get the inference of the images & rename the test folder as valid since yolov8 uses valid as testing internally<br>
-`Step 6:` Run the `main.py` by running using this command `python .\main.py` it will run the below python scripts in the order <br>
+`Step 5:` Copy some images and their labels from test folder and store in data folder to get the inference of the images & rename the test folder as valid since yolov8 uses valid as testing internally<br>
+`Step 6:` Run the `main.py` by using this command `python .\main.py` it will run the below python scripts in the order <br>
  ├── `Sub-Step 1:` Rename python script to get the clear and common naming format for images `python .\src\script\rename_dataset.py` <br>
  ├── `Sub-Step 2:` Start the traning process by running this command `python .\train.py` <br>
  ├── `Sub-Step 3:` Run the inference file `python .\infer.py` to get the inference <br>
