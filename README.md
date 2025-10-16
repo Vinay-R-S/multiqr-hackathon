@@ -82,6 +82,33 @@ False Positives: 0
 False Negatives: 0
 ```
 
+# Training Metrics
+
+## Training Metrics per Epoch
+
+| Epoch  | GPU_mem | box_loss | cls_loss | dfl_loss | Instances | Size | Box(P) | R     | mAP50 | mAP50-95 |
+|--------|---------|----------|----------|----------|-----------|------|--------|-------|-------|----------|
+| 1/30   | 0G      | 1.879    | 2.122    | 1.393    | 6         | 640  | 0.775  | 0.855 | 0.818 | 0.393    |
+| 5/30   | 0G      | 1.456    | 0.9304   | 1.189    | 6         | 640  | 0.891  | 0.921 | 0.829 | 0.524    |
+| 10/30  | 0G      | 1.376    | 0.7205   | 1.150    | 20        | 640  | 0.894  | 0.915 | 0.840 | 0.503    |
+| 15/30  | 0G      | 1.319    | 0.6614   | 1.125    | 8         | 640  | 0.895  | 0.912 | 0.861 | 0.577    |
+| 20/30  | 0G      | 1.267    | 0.5947   | 1.110    | 14        | 640  | 0.878  | 0.915 | 0.838 | 0.547    |
+| 25/30  | 0G      | 1.177    | 0.5322   | 1.090    | 9         | 670  | 0.899  | 0.915 | 0.861 | 0.581    |
+| 30/30  | 0G      | 1.113    | 0.487    | 1.057    | 5         | 640  | 0.904  | 0.915 | 0.867 | 0.592    |
+
+## Validation Metrics
+
+| Class | Images | Instances | Box(P) | R     | mAP50 | mAP50-95 |
+|-------|--------|-----------|--------|-------|-------|----------|
+| all   | 50     | 177       | -      | -     | -     | -        |
+
+
+### Notes
+- The "Instances" column under training refers to the number of instances per batch.
+- Validation metrics (Box(P), R, mAP50, mAP50-95) are reported for the entire validation set after each epoch.
+- GPU memory usage is consistently 0G, indicating no GPU was used or detected.
+
+
 ## Sample submission in `output folder` - The bounding box co-ordinates after the inference
 
 ## Project is divided into 2 stages
